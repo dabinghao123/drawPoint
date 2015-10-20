@@ -36,14 +36,14 @@
         
      
         
-        length = sqrt(pow((startPoint.x - endPoint.x), 2) + pow((startPoint.y - endPoint.y),2))/5;
+        length = sqrt(pow((startPoint.x - endPoint.x), 2) + pow((startPoint.y - endPoint.y),2))/20;
         
         float xIndex = (endPoint.x-startPoint.x)/length;
         
         float yIndex = (endPoint.y-startPoint.y)/length;
         
         //判断方向 向右或向右的方向
-        if(fabsf(startPoint.x - endPoint.x) >fabsf(startPoint.y - endPoint.y)){
+        if(fabs(startPoint.x - endPoint.x) > fabs(startPoint.y - endPoint.y)){
             
 //            向右
             if (startPoint.x < endPoint.x) {
