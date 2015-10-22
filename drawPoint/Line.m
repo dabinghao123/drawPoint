@@ -6,9 +6,9 @@
 //  Copyright © 2015年 binghuang. All rights reserved.
 //
 
-#import "LineModel.h"
+#import "Line.h"
 
-@implementation LineModel
+@implementation Line
 
 
 

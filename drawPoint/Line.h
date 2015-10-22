@@ -29,7 +29,7 @@ typedef  NS_ENUM(NSInteger,YFColor){
 //    
 //};
 
-@interface LineModel : NSObject<NSCopying>
+@interface Line: NSObject<NSCopying>
 
 
 @property(nonatomic,assign) CGPoint  startPoint;
