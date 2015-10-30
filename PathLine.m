@@ -36,9 +36,9 @@
         
         lineModelsArray  = [[NSMutableArray alloc] initWithCapacity:0];
         pointsArray      = [[NSMutableArray alloc] initWithCapacity:0];
-        
         martinDataArray1 = [[NSMutableArray alloc] initWithCapacity:0];
         
+        //填充数据和解析数据
         [self collectionData];
      
     }
@@ -112,85 +112,231 @@
 }
 
 
-
--(NSArray *)getPathWay:(YFPoint *)startPoint endPoint:(YFPoint *) endPoint{
+//获取线路的集合点
+-(NSArray *)getPathWay:(YFPoint *)originStartPoint endPoint:(YFPoint *) originEndPoint{
  
    
-    LineModel * lineOne  = [self getShortLine:startPoint];
+    LineModel * lineOne  = [self getShortLine:originStartPoint];
     
-    LineModel * lineTwo  = [self getShortLine:endPoint];
+    LineModel * lineTwo  = [self getShortLine:originEndPoint];
     
-    //如果在通一条直线上就直接连起来
+    
+    
+    //如果在同一条直线上就直接连起来
     if ([lineOne equalsModel:lineTwo]) {
-        
-        NSArray * points = @[startPoint,endPoint];
-        
+        NSArray * points = @[originStartPoint,originEndPoint];
         return points;
     }
     
-    //获取lineOne上的点
-//     YFPoint * point = 
+    //最短点的索引值
+    NSInteger index1  =  [self getShortPoint:lineOne point:originStartPoint];
+    NSInteger index2  =  [self getShortPoint:lineTwo point:originEndPoint];
     
-    NSInteger index1  =  [self getShortPoint:lineOne point:startPoint];
-    NSInteger index2  =  [self getShortPoint:lineTwo point:endPoint];
-    
-    
+    NSLog(@"=====idnex1==%ld==index2==%ld",index1,index2);
     NSArray  *  pathPoint =  [self getLinePoint:index1 index2:index2];
     
-    return pathPoint;
+    NSLog(@"pathPoint ====%ld",[pathPoint count]);
+    
+    YFPoint * projectionPointStart = [self getshortPoint:lineOne originPoint:originStartPoint];
+    
+    YFPoint * projectionPointEnd = [self getshortPoint:lineTwo originPoint:originEndPoint];
+    
+    NSMutableArray * arrayPoint = [[NSMutableArray alloc] initWithArray:pathPoint];
+ 
+
+    if (projectionPointStart == nil) {
+        
+        
+        [arrayPoint insertObject:pointsArray[index1] atIndex:0];
+        //投影点在延长线上
+        [arrayPoint insertObject:originStartPoint atIndex:0];
+        NSLog(@"projectionPointStart == nil");
+        
+       
+        
+    }else{
+        
+        [arrayPoint insertObject:projectionPointStart atIndex:0];
+
+        if (![projectionPointStart isEqualOther:originStartPoint]) {
+            [arrayPoint insertObject:originStartPoint atIndex:0];
+        }
+        
+    }
+    
+    if (projectionPointEnd == nil) {
+        
+        YFPoint * endPoint = pointsArray[index2];
+        
+        [arrayPoint insertObject:endPoint atIndex:[arrayPoint count]];
+        
+        if (![self isInOneLine:lineTwo originPoint:originEndPoint]) {
+            //还要，求一个点
+            
+            
+            
+            
+            
+        }
+        //投影点再延长线上
+        [arrayPoint insertObject:originEndPoint atIndex:[arrayPoint count]];
+        NSLog(@"projectionPointEnd == nil");
+        
+    }else{
+        
+        [arrayPoint insertObject:projectionPointEnd atIndex:[arrayPoint count]];
+
+        if (![projectionPointEnd isEqualOther:originEndPoint ]) {
+            
+            [arrayPoint insertObject:originEndPoint atIndex:[arrayPoint count]];
+        }
+
+    }
+    
+    NSLog(@"arrayPoint===%ld",[arrayPoint count]);
+    
+    for (YFPoint * point in arrayPoint) {
+        NSLog(@"点的坐标是====%@=====%@",point.x,point.y);
+    }
+    return arrayPoint;
+}
+
+
+
+-(YFPoint *)gettouyingPoint:(YFPoint *) point1 point2:(YFPoint *)point2{
+    float x = [point2.x floatValue] - [point1.x floatValue];
+    float y = [point2.y floatValue] - [point2.y floatValue];
+    
+    if (x > 0) {
+        
+    }
+    
+    
+    
+    return nil;
+}
+
+
+-(BOOL)isInOneLine:(LineModel *) lineModel  originPoint:(YFPoint *) originPoint{
+    float a = 0.0;
+    float b = 0.0;
+    
+    a = ([originPoint.y floatValue]- [lineModel.starPoint.y floatValue])/([originPoint.x floatValue] - [lineModel.starPoint.x floatValue]);
+    b = ([originPoint.y floatValue]- [lineModel.endPoint.y floatValue])/([originPoint.x floatValue] - [lineModel.endPoint.x floatValue]);
+    
+    if (a == b) {
+        
+        return YES;
+    }
+
+    return NO;
+}
+
+/**
+ *  点到线的路线
+ *
+ *  @return
+ */
+-(YFPoint *)getshortPoint:(LineModel *) line originPoint:(YFPoint *) originPoint{
+    
+    //test 点到线上
+    
+    BOOL isLine = NO;
+    
+    double x1, y1, x2, y2, x3, y3;
+    
+    x1 = [line.starPoint.x doubleValue];
+    y1 = [line.starPoint.y doubleValue];
+    
+    x2 = [line.endPoint.x doubleValue];
+    y2 = [line.endPoint.y doubleValue];
+    
+    x3 = [originPoint.x doubleValue];
+    y3 = [originPoint.y doubleValue];
+    
+    double px = x2 - x1;
+    double py = y2 - y1;
+    double som = px * px + py * py;
+    
+    double u =  ((x3 - x1) * px + (y3 - y1) * py) / som;
+    
+    if (u > 1) {
+        u = 1;
+        NSLog(@"oneTest");
+        //在线段的延长线上右边或下边
+        isLine = YES;
+    }
+    if (u < 0) {
+        u = 0;
+        ////在线段的延长线左边上边
+        NSLog(@"twoTest");
+        isLine = YES;
+        
+    }
+    //the closest point
+    double x = x1 + u * px;
+    double y = y1 + u * py;
+    
+    NSLog(@"=====x=%f===%f",x,y);
+    
+    double dx = x - x3;
+    double dy = y - y3;
+    double dist = sqrt(dx*dx + dy*dy);
+    
+    
+    
+    
+    //如果dist等于0这在线段上
+    
+    NSLog(@"dist=======%f",dist);
+    
+    if (isLine) {
+        //去点A的点
+        return nil;
+    }else{
+        //取x，y
+        return [[YFPoint alloc] initWithX:[NSNumber numberWithDouble:x] Y:[NSNumber numberWithDouble:y]];
+    }
+    
 }
 
 
 //取点
-
 -(NSArray *)getLinePoint:(NSInteger)index1 index2:(NSInteger)index2{
     
     NSMutableArray * pointArray = [[NSMutableArray alloc] initWithCapacity:0];
     
-    YFPoint * startPoint = pointsArray[index1];
-     YFPoint * endPoint   = pointsArray[index2];
-    
-     [pointArray addObject:endPoint];
      PreElement  *  preelement = martinDataArray1[index1][index2];
+     YFPoint * point1  = pointsArray[[preelement.preIndex intValue]];
+       [pointArray addObject:point1];
     
-    NSLog(@"preelement.preIndex====%ld====%ld",index1,index2);
-
-
     while (true) {
         
         preelement = martinDataArray1[index1][[preelement.preIndex intValue]];
-        NSLog(@"preelement.preIndex====%@",preelement.preIndex);
         
-        NSLog(@"preelement.length==%@",preelement.legnth);
-        if ([preelement.legnth intValue] == 0) {
+        if ([preelement.legnth intValue] == 0 || [preelement.preIndex intValue] == index1) {
             break;
         }
-        
-        NSLog(@"尼玛咋么那么难==%@",preelement.preIndex);
-        
-      
-        
-        YFPoint * point  = pointsArray[[preelement.preIndex intValue]];
-        [pointArray addObject:point];
 
+        YFPoint * point  = pointsArray[[preelement.preIndex intValue]];
+     
+        [pointArray addObject:point];
+        
     }
-    
-    [pointArray addObject:startPoint];
-    
-    NSLog(@"🈹getLInePoint ===%ld",[pointArray count]);
-    
     
     return [[pointArray reverseObjectEnumerator] allObjects];
     
 }
 
 
-//获取最短线的索引值
+//获取最短点的的索引值
 -(NSInteger) getShortPoint:(LineModel *) linemodel point:(YFPoint *)point{
     
     double  length1 = 0.0;
     double  length2 = 0.0;
+    
     NSInteger  indenx;
+    
     
     length1 =sqrt(pow(([linemodel.starPoint.x doubleValue]- [point.x doubleValue]), 2) + pow(([linemodel.starPoint.y doubleValue]- [point.y doubleValue]), 2));
         
@@ -243,8 +389,11 @@
     LineModel * tmpModel;
      //获取最近的线
     for (int i = 0; i< [lineModelsArray count]; i++) {
+        
         LineModel * lineModel = lineModelsArray[i];
+        
         tmplenth = [self getShortLineLength:lineModel.starPoint endPoint:lineModel.endPoint myPoint:point];
+        
         if (length > tmplenth) {
             length = tmplenth;
             tmpModel = lineModel;
@@ -256,18 +405,19 @@
 }
 
 
+//找最短的线
 -(double) getShortLineLength:(YFPoint *)startPoint endPoint:(YFPoint *)endPoint myPoint:(YFPoint*)mypoint{
     
     double x1, y1, x2, y2, x3, y3;
     
-    x1 = [mypoint.x doubleValue];
-    y1 = [mypoint.y doubleValue];
+    x1 = [startPoint.x doubleValue];
+    y1 = [startPoint.y doubleValue];
     
-    x2 = [startPoint.x doubleValue];
-    y2 = [startPoint.y doubleValue];
+    x2 = [endPoint.x doubleValue];
+    y2 = [endPoint.y doubleValue];
     
-    x3 = [endPoint.x doubleValue];
-    y3 = [endPoint.y doubleValue];
+    x3 = [mypoint.x doubleValue];
+    y3 = [mypoint.y doubleValue];
     
     double px = x2 - x1;
     double py = y2 - y1;
@@ -282,8 +432,10 @@
     //the closest point
     double x = x1 + u * px;
     double y = y1 + u * py;
+    
     double dx = x - x3;
     double dy = y - y3;
+    
     double dist = sqrt(dx*dx + dy*dy);
     
     return dist;
@@ -294,78 +446,43 @@
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect {
     // Drawing code
-//    
     CGContextRef context = UIGraphicsGetCurrentContext();
     
     CGContextSetRGBFillColor (context,  1, 0, 0, 1.0);//设置填充颜色
     CGContextSetRGBStrokeColor(context, 1, 0, 1.0, 1.0);//设置线的颜色
     
-    YFPoint * startpoint = [[YFPoint alloc]initWithX:[NSNumber numberWithFloat:108.f] Y:[NSNumber numberWithFloat:108.f]];
+    YFPoint * startpoint = [[YFPoint alloc]initWithX:[NSNumber numberWithFloat:120.f] Y:[NSNumber numberWithFloat:88.f]];
     
-    YFPoint * endpoint  = [[YFPoint alloc] initWithX:[NSNumber numberWithFloat:68.f] Y:[NSNumber numberWithFloat:133.f]];
+    YFPoint * endpoint  = [[YFPoint alloc] initWithX:[NSNumber numberWithFloat:68.f] Y:[NSNumber numberWithFloat:150.f]];
     
     NSArray * pointArrayTMp = [self getPathWay:startpoint endPoint:endpoint];
     
-    NSLog(@"pointArratTmp===%ld",[pointArrayTMp count]);
+     YFPoint * tmpPoint = pointArrayTMp[0];
     
-    NSLog(@"pointArratmp====%@",((YFPoint *)pointArrayTMp[0]).x);
+    CGContextSetLineWidth(context, 2);
     
-    YFPoint * tmpPoint = pointArrayTMp[0];
+    CGContextAddEllipseInRect(context, CGRectMake([tmpPoint.x doubleValue] - 5,[tmpPoint.y doubleValue] - 5,10, 10));
+    CGContextDrawPath(context, kCGPathFillStroke);
     
     CGContextMoveToPoint(context,[tmpPoint.x doubleValue],[tmpPoint.y doubleValue]);
-
-    for (int i = 0; i< [pointArrayTMp count]; i++) {
-//        YFPoint * tmpPoint = pointArrayTMp[i];
+    
+    //画线
+    for (int i = 1; i< [pointArrayTMp count]; i++) {
         YFPoint * netPoint = pointArrayTMp[i];
-          NSLog(@"======mpPoint==%@===%@",netPoint.x,netPoint.y);
-        CGContextAddLineToPoint(context,[netPoint.x doubleValue],[netPoint.y doubleValue]);
-        CGContextSetLineWidth(context, 2);
-        CGContextStrokePath(context);
-
-//        CGContextClosePath(context);
- 
+          NSLog(@"======mpPointx==%@==y=%@",netPoint.x,netPoint.y);
+         CGContextAddLineToPoint(context,[netPoint.x doubleValue],[netPoint.y doubleValue]);
     }
-    
-//    for (int i = 0; i< [linesArray count]; i++) {
-//        NSDictionary *  rootDict = linesArray[i];
-//        NSDictionary * endPointOne = [rootDict objectForKey:@"endPointOne"];
-//        NSDictionary * endPointTwo = [rootDict objectForKey:@"endPointTwo"];
-//        
-//        CGPoint startPoint = CGPointMake([[endPointOne objectForKey:@"x"] floatValue],[[endPointOne objectForKey:@"y"] floatValue]);
-//        
-//        CGPoint endPoint = CGPointMake([[endPointTwo objectForKey:@"x"] floatValue], [[endPointTwo objectForKey:@"y"] floatValue]);
-//        
-//        
-//        CGContextMoveToPoint(context,startPoint.x,startPoint.y);
-//        CGContextAddLineToPoint(context,endPoint.x,endPoint.y);
-//        CGContextSetLineWidth(context, 2);
-//       
-//        CGContextStrokePath(context);
-//
-//        CGContextAddEllipseInRect(context, CGRectMake(startPoint.x- 5,startPoint.y - 5,10, 10));
-//
-//        CGContextAddEllipseInRect(context, CGRectMake(endPoint.x- 5,endPoint.y - 5,10, 10));
-//
-//        CGContextDrawPath(context, kCGPathFill);
-//
-//    }
-//  
-//    CGContextSetRGBFillColor (context,  0.22, 0, 0.6, 1.0);//设置填充颜色
-//
-//    for (int i=0; i<[positionsArray count]; i++) {
-//        
-//        NSDictionary * pointDic = positionsArray[i];
-//        
-//        
-//        CGContextAddEllipseInRect(context, CGRectMake([[pointDic objectForKey:@"x"] doubleValue] - 2.5,[[pointDic objectForKey:@"y"] doubleValue] - 2.5,5, 5));
-//
-//    }
-//    
-//    CGContextDrawPath(context, kCGPathFill);
-
+      CGContextStrokePath(context);
 
     
+    //画点
+    for (int i = 1; i< [pointArrayTMp count]; i++) {
+        YFPoint * netPoint = pointArrayTMp[i];
+        CGContextAddEllipseInRect(context, CGRectMake([netPoint.x doubleValue] - 5,[netPoint.y doubleValue] - 5,10, 10));
+    }
+        CGContextDrawPath(context, kCGPathFillStroke);
     
+
     
 }
 

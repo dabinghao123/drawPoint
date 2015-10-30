@@ -126,24 +126,32 @@
     CGPathAddArc(path, nil,radius+ins, radius+ins, radius, -M_PI/2.0, M_PI/2.0, true);
     //右圆弧
     CGPathAddArc(path, nil,CGRectGetMaxX(r)-radius, radius+ins, radius,M_PI/2.0, -M_PI/2.0, true);
-    //
+    
+    
+    
     CGPathCloseSubpath(path);
     //
     CGContextAddPath(c, path);
     
     CGContextSetLineWidth(c, 1);
     
-    CGContextStrokePath(c);
+    CGContextClosePath(c);
+    CGContextStrokePath(c);//画在画板上
     
-//    CGContextDrawPath(, <#CGPathDrawingMode mode#>)
+
+
+
+
+    
+//    CGContextDrawPath(co, <#CGPathDrawingMode mode#>)
     
    
-//    CGContextAddPath(c, path);
-//    
-//    CGContextClip(c);
-//    
+     CGContextAddPath(c, path);//添加一个路径
+     CGContextClip(c); //裁剪
+    
+//
 //    //画长方形
-//    CGContextFillRect(c, CGRectMake(r.origin.x, r.origin.y, r.size.width * self.value, r.size.height));
+     CGContextFillRect(c, CGRectMake(r.origin.x, r.origin.y, r.size.width * self.value, r.size.height));
     
 }
 

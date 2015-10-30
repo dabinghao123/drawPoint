@@ -23,6 +23,9 @@
 
 #import "PathLine.h"
 
+#import "DropDownMenuView.h"
+
+#import "PaintView.h"
 
 @interface ViewController ()
 
@@ -48,6 +51,9 @@
     a^=b;
     
     NSLog(@"===%d==%d",a,b);
+    
+    
+    
     //16*9 = 144
     
     //    NSLog(@"===%d",10&3);
@@ -119,18 +125,18 @@
 //2
 //    DrawProesss *press = [[DrawProesss alloc] initWithFrame:CGRectMake(100,64,100, 20)];
 //    press.value = 0.5;
-//    press.backgroundColor = [UIColor redColor];
+//    press.backgroundColor = [UIColor grayColor];
 //    
 //    [self.view addSubview:press];
-    
+//    
 //3
-    
-    NSArray *array=@[@"搜索",@"选择",@"视频",@"图片"];
-    UISegmentedControl *segmentControl=[[UISegmentedControl alloc]initWithItems:array];
-    //设置位置 大小
-    segmentControl.frame = CGRectMake(60, 100, 200, 40);
-    //默认选择
-    segmentControl.selectedSegmentIndex=1;
+//    
+//    NSArray *array=@[@"搜索",@"选择",@"视频",@"图片"];
+//    UISegmentedControl *segmentControl=[[UISegmentedControl alloc]initWithItems:array];
+//    //设置位置 大小
+//    segmentControl.frame = CGRectMake(60, 100, 200, 40);
+//    //默认选择
+//    segmentControl.selectedSegmentIndex=1;
     
     //设置背景色
 //    segmentControl.tintColor=[UIColor greenColor];
@@ -194,12 +200,12 @@
 //    [self.view addSubview:pathWay];
     
     //5
-    PathLine  * pathLine = [[PathLine alloc]initWithFrame:CGRectMake(0,64,320,560)];
-    
-    pathLine.backgroundColor = [UIColor whiteColor];
-    
-    [self.view addSubview:pathLine];
-    
+//    PathLine  * pathLine = [[PathLine alloc]initWithFrame:CGRectMake(0,64,320,560)];
+//    
+//    pathLine.backgroundColor = [UIColor whiteColor];
+//    
+//    [self.view addSubview:pathLine];
+//    
     //6
    /*
     UIActivityIndicatorView * activity = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
@@ -318,11 +324,170 @@
 //    
   
     
+    //test 点到线上
+//    [self getshortPoint];
+//    float x = 1;
+//    float y = 0;
+//    UIView * testView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 500, 200)];
+//    testView.layer.anchorPoint = CGPointMake(x, y);
+//    
+//    CGPoint point = CGPointMake(self.view.center.x, self.view.center.y);
+//    testView.layer.position    = point;
+//    
+//    testView.transform = CGAffineTransformMakeTranslation(CGRectGetWidth(testView.frame) * (x - 0.5),CGRectGetHeight(testView.frame)*(y - 0.5) );
+//    
+//    
+//    testView.backgroundColor   =[UIColor grayColor];
+//    [self.view addSubview:testView];
+//    
+//    UIView * test  = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
+//    test.center = self.view.center;
+//    test.layer.cornerRadius = 10;
+//
+//    test.backgroundColor = [UIColor blackColor];
+//    [self.view addSubview:test];
+//    
+//    UIView * test1 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
+//    test1.center = self.view.center;
+//    test1.layer.cornerRadius = 10;
+//    
+//    test1.transform = CGAffineTransformMakeTranslation(CGRectGetWidth(testView.frame) * (0.5 - x ),CGRectGetHeight(testView.frame)*(0.5 - y) );
+//
+//    test1.backgroundColor = [UIColor blackColor];
+//    [self.view addSubview:test1];
     
     
+    //test mutablecopy  and copy different
+//   
+//    UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 64,100,100)];
+//    
+//    //开始创建一个
+//    UIGraphicsBeginImageContextWithOptions(CGSizeMake(CGRectGetWidth(imageView.frame), CGRectGetHeight(imageView.frame)), NO, 0);
+//    CGContextRef  context = UIGraphicsGetCurrentContext();
+//    CGContextSetFillColorWithColor(context, [UIColor grayColor].CGColor);
+//    CGContextSetStrokeColorWithColor(context, [UIColor blackColor].CGColor);
+//    CGContextFillEllipseInRect(context, CGRectMake(2, 2, 50, 50));
+//    CGContextStrokeEllipseInRect(context,CGRectMake(2, 2, 50, 50));
+    
+//    DropDownMenuView * menuView = [[DropDownMenuView alloc] initWithFrame:CGRectMake(0,64,50,50*5+ 10*5) stackState:UPStackMenuStackPosition_down];
+//    
+//    [self.view addSubview:menuView];
+    
+    PaintView * paintView =  [[PaintView alloc] initWithFrame:CGRectMake(0, 64, 100, 100)];
+    
+    [self.view addSubview:paintView];
+    
+}
 
+//static void MyDrawStencilStar (void *info, CGContextRef myContext)
+//{
+//    int k;
+//    double r, theta;
+//    double PSIZE = 100;
+//    r = 0.8 * PSIZE / 2;
+//    theta =  2 * M_PI * (2.0 / 5); // 144 degrees
+//    
+//    
+//    CGContextTranslateCTM (context, PSIZE/2, PSIZE/2);
+//    
+//    
+//    CGContextMoveToPoint(context,0,r);
+//    
+//    for (k = 1; k < 5; k++) {
+//        
+//        CGContextAddLineToPoint (context,r * sin(k * theta),r * cos(k * theta));
+//        
+//    }
+//    
+//    //    CGContextClosePath(context);
+//    //    CGContextFillPath(context);
+//    CGContextStrokePath(context);
+//    
+//    CGContextClip(context);
+//    CGContextClosePath(context);
+//    
+//    
+//    CGContextFillRect(context, CGRectMake(-50, -50, 50, 50));
+//    
+//    CGContextClosePath(context);
+//    
+//    UIImage *  image =  UIGraphicsGetImageFromCurrentImageContext();
+//    //结束
+//    UIGraphicsEndImageContext();
+//    
+//    imageView.image = image;
+//    
+//    [self.view addSubview:imageView];
+//    
+//
+//}
+
+
+-(CGPoint)getshortPoint{
     
-   
+    //test 点到线上
+    
+    BOOL isLine = NO;
+    
+    double x1, y1, x2, y2, x3, y3;
+    
+    x1 = 50;
+    y1 = 50;
+    
+    x2 = 50;
+    y2 = 100;
+    
+    x3 = 100;
+    y3 = 120;
+    
+    double px = x2 - x1;
+    double py = y2 - y1;
+    double som = px * px + py * py;
+    
+    double u =  ((x3 - x1) * px + (y3 - y1) * py) / som;
+    
+    if (u > 1) {
+        u = 1;
+        NSLog(@"oneTest");
+        //在线段的延长线上右边或下边
+        isLine = YES;
+    }
+    if (u < 0) {
+        u = 0;
+        ////在线段的延长线左边上边
+        NSLog(@"twoTest");
+        isLine = YES;
+        
+    }
+    
+    
+//    投影点
+    
+    
+//    double 
+    
+    //the closest point
+    double x = x1 + u * px;
+    double y = y1 + u * py;
+    
+    NSLog(@"=====x=%f===%f",x,y);
+    
+    double dx = x - x3;
+    double dy = y - y3;
+    double dist = sqrt(dx*dx + dy*dy);
+    
+    //如果dist等于0这在线段上
+    
+    NSLog(@"dist=======%f",dist);
+    
+    if (isLine) {
+        //去点A的点
+        return CGPointMake(0, 0);
+    }else{
+      //取x，y
+        return CGPointMake(x, y);
+    }
+
 }
 
 - (void)didReceiveMemoryWarning {

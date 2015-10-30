@@ -14,5 +14,5 @@
 @property(nonatomic,strong) NSNumber * y;
 
 -(instancetype)initWithX:(NSNumber *)x Y:(NSNumber *)Y;
-
+-(BOOL)isEqualOther:(YFPoint*)object;
 @end

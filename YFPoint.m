@@ -26,4 +26,16 @@
     
 }
 
+
+-(BOOL)isEqualOther:(YFPoint*)object{
+    
+    if ([self.x isEqualToNumber:object.x] && [self.y isEqualToNumber:object.y]) {
+        return YES;
+    }else{
+        
+        return NO;
+    }
+
+}
+
 @end
