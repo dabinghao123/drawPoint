@@ -451,13 +451,104 @@
     CGContextSetRGBFillColor (context,  1, 0, 0, 1.0);//设置填充颜色
     CGContextSetRGBStrokeColor(context, 1, 0, 1.0, 1.0);//设置线的颜色
     
-    YFPoint * startpoint = [[YFPoint alloc]initWithX:[NSNumber numberWithFloat:120.f] Y:[NSNumber numberWithFloat:88.f]];
+    YFPoint * startpoint = [[YFPoint alloc]initWithX:[NSNumber numberWithFloat:68.f] Y:[NSNumber numberWithFloat:83.f]];
     
-    YFPoint * endpoint  = [[YFPoint alloc] initWithX:[NSNumber numberWithFloat:68.f] Y:[NSNumber numberWithFloat:150.f]];
+    YFPoint * endpoint  = [[YFPoint alloc] initWithX:[NSNumber numberWithFloat:108.f] Y:[NSNumber numberWithFloat:133.f]];
     
     NSArray * pointArrayTMp = [self getPathWay:startpoint endPoint:endpoint];
     
+    
+    
+    
      YFPoint * tmpPoint = pointArrayTMp[0];
+    
+    
+    
+    
+    
+    
+//    
+//    if (pointArrayTMp.count < 1) {
+//        
+//        return;
+//        
+//    }
+//    
+//    for (int i=0 ; i<pointArrayTMp.count -1; i++) {
+//        
+//        YFPoint * startPoint = pointArrayTMp[i];
+//        YFPoint * endPoint = pointArrayTMp[i+1];
+//        
+//        
+//        float x1=[startPoint.x  floatValue];
+//        float y1=[startPoint.y  floatValue];
+//        
+//        float x2=[endPoint.x  floatValue];
+//        float y2=[endPoint.y  floatValue];
+//        
+//        int length = 0;
+//        
+//        //长度
+//        length = sqrt((x1-x2)*(x1-x2)+(y1-y2)*(y1-y2))/5.0;
+//        
+//        float xIndex = (x2-x1)/length;
+//        
+//        float yIndex = (y2-y1)/length;
+//        
+//        int angle = 0;
+//        
+//        
+//        
+//        //大于0 说明是向左或者是向右移动
+//        if (fabsf(x1-x2) > fabsf(y1-y2)) {
+//            if ((x1-x2)>0) {
+//                
+//                angle=1;
+//                //                向左
+//            }else if ((x1-x2)<0){
+//                
+//                angle = 3;
+//                
+//            }
+//            
+//            
+//        }else{
+//            //向上
+//            if ((y1-y2)>0) {
+//                angle = 2;
+//                //向下
+//            }else if ((y1-y2)<0){
+//                angle = 0;
+//            }
+//        }
+//        
+//        int width = 0;
+//        int height = 0;
+//        
+//        
+//        if (angle%2 == 0) {
+//            
+//            width = 10;
+//            height = 8;
+//            
+//        }else{
+//            
+//            width = 8;
+//            height = 10;
+//        }
+//        
+//        
+//        for (int i=0; i<length; i++) {
+//            
+//            UIImage * image=[UIImage imageNamed:[NSString stringWithFormat:@"指向箭头%d.png",angle]];
+//            [image drawInRect:CGRectMake(x1+xIndex*i, y1+yIndex*i, width*0.6,height*0.6)];
+//            
+//        }
+//        
+//        
+//    }
+//    
+//    self.alpha=1;
     
     CGContextSetLineWidth(context, 2);
     

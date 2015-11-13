@@ -27,7 +27,23 @@
 
 #import "PaintView.h"
 
+#import "SwitchView.h"
+
+#import "DrawPaint.h"
+
+//
+#import "MoveActionView.h"
+
+
+typedef enum{
+    Frist,
+    TWO
+    
+} TEST;
+
 @interface ViewController ()
+
+@property(nonatomic,assign) TEST test;
 
 @end
 
@@ -35,6 +51,48 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+    
+    MoveActionView * moveAction = [[MoveActionView alloc] initWithFrame:self.view.bounds];
+    moveAction.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:moveAction];
+    
+    /**
+     *  viewcontroller
+        *a 的值是 c常数的值
+        a 是c的指针值
+       **d c常数的值
+       *d  是c的指针值
+       d  是a的指针值
+     */
+    //2015-11-09 09:57:47.040 drawPoint[1012:15613] *a=10=====*b=0x7fff5667ea78=a=0x7fff5667ea78=b=0x7fff5667ea70=&a=0x7fff5667ea70
+
+    
+//    BOOL isLoading = YES;
+//    int  c = 10;
+//    int  e  = 20;
+////    int d = 19;
+//    
+//    int *d = &e;
+//    
+//    int *a = &c;
+//    int **b = &a;
+//    
+//
+////a=0x7fff5f953a78=====b=10==0x7fff5f953a70==0x7fff5f953a70=
+////a=0x7fff558d3a78=====b=10==0x7fff558d3a70==0x7fff558d3a78=
+//    NSLog(@"a=%p=====b=%d==%p==%p=",*b,**b,b,&a);
+//    
+//    *b = &e;
+//    b = &d;
+    
+    
+//    a=0x7fff5f541a78=====b=10==0x7fff5f541a60==0x7fff5f541a78=
+//    2015-11-09 10:02:26.734 drawPoint[1147:19143] a=0x7fff5f541a74=====b=20==0x7fff5f541a60==0x7fff5f541a74=
+//    NSLog(@"a=%p=====b=%d==%p==%p=",*b,**b,b,&e);
+
+//    NSLog(@"======teset====%d",Frist);
     // Do any additional setup after loading the view, typically from a nib.
 //    
 //    DrawAnimotion  * drawView = [[DrawAnimotion alloc] initWithFrame:CGRectMake(0, 100,100, 100)];
@@ -43,14 +101,14 @@
     
     //monishuju
     
-    int a = 13;
-    int  b  = 19;
-    
-    a^=b;
-    b^=a;
-    a^=b;
-    
-    NSLog(@"===%d==%d",a,b);
+//    int a = 13;
+//    int  b  = 19;
+//    
+//    a^=b;
+//    b^=a;
+//    a^=b;
+//    
+//    NSLog(@"===%d==%d",a,b);
     
     
     
@@ -199,13 +257,17 @@
 //    PathWay *pathWay = [[PathWay alloc ] initWithFrame:CGRectMake(0,64,320,568)];
 //    [self.view addSubview:pathWay];
     
+    
+    
+    //线路
+    
     //5
 //    PathLine  * pathLine = [[PathLine alloc]initWithFrame:CGRectMake(0,64,320,560)];
 //    
 //    pathLine.backgroundColor = [UIColor whiteColor];
 //    
 //    [self.view addSubview:pathLine];
-//    
+    
     //6
    /*
     UIActivityIndicatorView * activity = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
@@ -372,10 +434,21 @@
 //    DropDownMenuView * menuView = [[DropDownMenuView alloc] initWithFrame:CGRectMake(0,64,50,50*5+ 10*5) stackState:UPStackMenuStackPosition_down];
 //    
 //    [self.view addSubview:menuView];
+//    SwitchView.h
     
-    PaintView * paintView =  [[PaintView alloc] initWithFrame:CGRectMake(0, 64, 100, 100)];
+//    PaintView * paintView =  [[PaintView alloc] initWithFrame:CGRectMake(0, 64, 100, 100)];
+//    
+//    [self.view addSubview:paintView];
     
-    [self.view addSubview:paintView];
+//    SwitchView *swithView = [[SwitchView alloc] initWithFrame:CGRectMake(0, 64,CGRectGetWidth(self.view.frame),100)];
+//    [self.view addSubview:swithView];
+//    
+//    DrawPaint * paintDraw = [[DrawPaint alloc] initWithFrame:CGRectMake(0, 64, 320,400)];
+//    
+//    [self.view addSubview:paintDraw];
+//    
+    
+    
     
 }
 

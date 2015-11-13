@@ -21,7 +21,8 @@
 		016990E61BBE7A8700F5DC69 /* DrawAnimotion.m in Sources */ = {isa = PBXBuildFile; fileRef = 016990E51BBE7A8700F5DC69 /* DrawAnimotion.m */; };
 		0180556B1BE05D720051BFE7 /* DropDownMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0180556A1BE05D720051BFE7 /* DropDownMenuView.m */; };
 		0180556F1BE1BB490051BFE7 /* PaintView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0180556E1BE1BB490051BFE7 /* PaintView.m */; };
-		018776E81BD62C1A009FF228 /* PathLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 018776E71BD62C1A009FF228 /* PathLine.m */; };
+		018056681BE706270051BFE7 /* SwitchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 018056671BE706270051BFE7 /* SwitchView.m */; };
+		0180566B1BE750800051BFE7 /* DrawPaint.m in Sources */ = {isa = PBXBuildFile; fileRef = 0180566A1BE750800051BFE7 /* DrawPaint.m */; };
 		018776EA1BD62C85009FF228 /* line.json in Resources */ = {isa = PBXBuildFile; fileRef = 018776E91BD62C85009FF228 /* line.json */; };
 		0194B8F01BD5D9B2009F0351 /* PathWay.m in Sources */ = {isa = PBXBuildFile; fileRef = 0194B8EF1BD5D9B2009F0351 /* PathWay.m */; };
 		0194B8F51BD5DB75009F0351 /* direction0.png in Resources */ = {isa = PBXBuildFile; fileRef = 0194B8F11BD5DB75009F0351 /* direction0.png */; };
@@ -32,10 +33,19 @@
 		01ED91741BD0F2D400F96803 /* switch.png in Resources */ = {isa = PBXBuildFile; fileRef = 01ED91731BD0F2D400F96803 /* switch.png */; };
 		01ED91771BD0F31C00F96803 /* RotionButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 01ED91761BD0F31C00F96803 /* RotionButton.m */; };
 		01ED917A1BD48BEE00F96803 /* CustomPickView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01ED91791BD48BEE00F96803 /* CustomPickView.m */; };
+		01EE21EF1BEA061400460495 /* LineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 01EE21EA1BEA061400460495 /* LineModel.m */; };
+		01EE21F01BEA061400460495 /* PathLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 01EE21EC1BEA061400460495 /* PathLine.m */; };
+		01EE21F11BEA061400460495 /* PreElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 01EE21EE1BEA061400460495 /* PreElement.m */; };
+		01EE21F71BEA07C100460495 /* 指向箭头0.png in Resources */ = {isa = PBXBuildFile; fileRef = 01EE21F31BEA07C100460495 /* 指向箭头0.png */; };
+		01EE21F81BEA07C100460495 /* 指向箭头1.png in Resources */ = {isa = PBXBuildFile; fileRef = 01EE21F41BEA07C100460495 /* 指向箭头1.png */; };
+		01EE21F91BEA07C100460495 /* 指向箭头2.png in Resources */ = {isa = PBXBuildFile; fileRef = 01EE21F51BEA07C100460495 /* 指向箭头2.png */; };
+		01EE21FA1BEA07C100460495 /* 指向箭头3.png in Resources */ = {isa = PBXBuildFile; fileRef = 01EE21F61BEA07C100460495 /* 指向箭头3.png */; };
+		01EE21FD1BEA081E00460495 /* YFPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 01EE21FC1BEA081E00460495 /* YFPoint.m */; };
+		01F1E5EC1BF31A5700D13492 /* StyleKitName.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F1E5EB1BF31A5700D13492 /* StyleKitName.m */; };
+		01F1E5EF1BF31BE600D13492 /* DashView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F1E5EE1BF31BE600D13492 /* DashView.m */; };
+		01F1E5F11BF31CB100D13492 /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01F1E5F01BF31CB100D13492 /* View.xib */; };
+		01F1E5F81BF33B1800D13492 /* MoveActionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F1E5F71BF33B1800D13492 /* MoveActionView.m */; };
 		01FDF0591BD72CDC000F7187 /* SelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01FDF0581BD72CDC000F7187 /* SelectView.m */; };
-		01FDF05E1BD7699D000F7187 /* LineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 01FDF05D1BD7699D000F7187 /* LineModel.m */; };
-		01FDF0611BD769D1000F7187 /* YFPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 01FDF0601BD769D1000F7187 /* YFPoint.m */; };
-		01FDF0641BD771D8000F7187 /* PreElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 01FDF0631BD771D8000F7187 /* PreElement.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,8 +94,10 @@
 		0180556A1BE05D720051BFE7 /* DropDownMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropDownMenuView.m; sourceTree = "<group>"; };
 		0180556D1BE1BB490051BFE7 /* PaintView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaintView.h; sourceTree = "<group>"; };
 		0180556E1BE1BB490051BFE7 /* PaintView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaintView.m; sourceTree = "<group>"; };
-		018776E61BD62C1A009FF228 /* PathLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PathLine.h; sourceTree = "<group>"; };
-		018776E71BD62C1A009FF228 /* PathLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PathLine.m; sourceTree = "<group>"; };
+		018056661BE706270051BFE7 /* SwitchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwitchView.h; path = drawPoint/SwitchView.h; sourceTree = "<group>"; };
+		018056671BE706270051BFE7 /* SwitchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwitchView.m; path = drawPoint/SwitchView.m; sourceTree = "<group>"; };
+		018056691BE750800051BFE7 /* DrawPaint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawPaint.h; sourceTree = "<group>"; };
+		0180566A1BE750800051BFE7 /* DrawPaint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawPaint.m; sourceTree = "<group>"; };
 		018776E91BD62C85009FF228 /* line.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = line.json; sourceTree = "<group>"; };
 		0194B8EE1BD5D9B2009F0351 /* PathWay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PathWay.h; sourceTree = "<group>"; };
 		0194B8EF1BD5D9B2009F0351 /* PathWay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PathWay.m; sourceTree = "<group>"; };
@@ -100,14 +112,27 @@
 		01ED91761BD0F31C00F96803 /* RotionButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RotionButton.m; sourceTree = "<group>"; };
 		01ED91781BD48BEE00F96803 /* CustomPickView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomPickView.h; sourceTree = "<group>"; };
 		01ED91791BD48BEE00F96803 /* CustomPickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomPickView.m; sourceTree = "<group>"; };
+		01EE21E91BEA061400460495 /* LineModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineModel.h; sourceTree = "<group>"; };
+		01EE21EA1BEA061400460495 /* LineModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineModel.m; sourceTree = "<group>"; };
+		01EE21EB1BEA061400460495 /* PathLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PathLine.h; sourceTree = "<group>"; };
+		01EE21EC1BEA061400460495 /* PathLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PathLine.m; sourceTree = "<group>"; };
+		01EE21ED1BEA061400460495 /* PreElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreElement.h; sourceTree = "<group>"; };
+		01EE21EE1BEA061400460495 /* PreElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreElement.m; sourceTree = "<group>"; };
+		01EE21F31BEA07C100460495 /* 指向箭头0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "指向箭头0.png"; sourceTree = "<group>"; };
+		01EE21F41BEA07C100460495 /* 指向箭头1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "指向箭头1.png"; sourceTree = "<group>"; };
+		01EE21F51BEA07C100460495 /* 指向箭头2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "指向箭头2.png"; sourceTree = "<group>"; };
+		01EE21F61BEA07C100460495 /* 指向箭头3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "指向箭头3.png"; sourceTree = "<group>"; };
+		01EE21FB1BEA081E00460495 /* YFPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YFPoint.h; sourceTree = "<group>"; };
+		01EE21FC1BEA081E00460495 /* YFPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YFPoint.m; sourceTree = "<group>"; };
+		01F1E5EA1BF31A5700D13492 /* StyleKitName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StyleKitName.h; sourceTree = "<group>"; };
+		01F1E5EB1BF31A5700D13492 /* StyleKitName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StyleKitName.m; sourceTree = "<group>"; };
+		01F1E5ED1BF31BE600D13492 /* DashView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashView.h; sourceTree = "<group>"; };
+		01F1E5EE1BF31BE600D13492 /* DashView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashView.m; sourceTree = "<group>"; };
+		01F1E5F01BF31CB100D13492 /* View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = View.xib; sourceTree = "<group>"; };
+		01F1E5F61BF33B1800D13492 /* MoveActionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoveActionView.h; sourceTree = "<group>"; };
+		01F1E5F71BF33B1800D13492 /* MoveActionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoveActionView.m; sourceTree = "<group>"; };
 		01FDF0571BD72CDC000F7187 /* SelectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectView.h; sourceTree = "<group>"; };
 		01FDF0581BD72CDC000F7187 /* SelectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectView.m; sourceTree = "<group>"; };
-		01FDF05C1BD7699D000F7187 /* LineModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineModel.h; sourceTree = "<group>"; };
-		01FDF05D1BD7699D000F7187 /* LineModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineModel.m; sourceTree = "<group>"; };
-		01FDF05F1BD769D1000F7187 /* YFPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YFPoint.h; sourceTree = "<group>"; };
-		01FDF0601BD769D1000F7187 /* YFPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YFPoint.m; sourceTree = "<group>"; };
-		01FDF0621BD771D8000F7187 /* PreElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreElement.h; sourceTree = "<group>"; };
-		01FDF0631BD771D8000F7187 /* PreElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreElement.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,12 +163,17 @@
 		016990A51BBE7A5800F5DC69 = {
 			isa = PBXGroup;
 			children = (
+				01F1E5F21BF33AC500D13492 /* animotion */,
+				01F1E5F01BF31CB100D13492 /* View.xib */,
+				01F1E5ED1BF31BE600D13492 /* DashView.h */,
+				01F1E5EE1BF31BE600D13492 /* DashView.m */,
+				01F1E5EA1BF31A5700D13492 /* StyleKitName.h */,
+				01F1E5EB1BF31A5700D13492 /* StyleKitName.m */,
+				01EE21F21BEA07AB00460495 /* New Group */,
+				01EE21E81BEA061400460495 /* PathView */,
 				0180556C1BE0BE0D0051BFE7 /* Resurce */,
 				01FDF05A1BD76923000F7187 /* PathLine */,
 				01FDF0561BD72C59000F7187 /* CustomView */,
-				018776E91BD62C85009FF228 /* line.json */,
-				018776E61BD62C1A009FF228 /* PathLine.h */,
-				018776E71BD62C1A009FF228 /* PathLine.m */,
 				016990B01BBE7A5800F5DC69 /* drawPoint */,
 				016990CA1BBE7A5900F5DC69 /* drawPointTests */,
 				016990D51BBE7A5900F5DC69 /* drawPointUITests */,
@@ -231,15 +261,55 @@
 			path = Resurce;
 			sourceTree = "<group>";
 		};
+		01EE21E81BEA061400460495 /* PathView */ = {
+			isa = PBXGroup;
+			children = (
+				01EE21FB1BEA081E00460495 /* YFPoint.h */,
+				01EE21FC1BEA081E00460495 /* YFPoint.m */,
+				01EE21E91BEA061400460495 /* LineModel.h */,
+				01EE21EA1BEA061400460495 /* LineModel.m */,
+				01EE21EB1BEA061400460495 /* PathLine.h */,
+				01EE21EC1BEA061400460495 /* PathLine.m */,
+				01EE21ED1BEA061400460495 /* PreElement.h */,
+				01EE21EE1BEA061400460495 /* PreElement.m */,
+			);
+			path = PathView;
+			sourceTree = "<group>";
+		};
+		01EE21F21BEA07AB00460495 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				01EE21F31BEA07C100460495 /* 指向箭头0.png */,
+				01EE21F41BEA07C100460495 /* 指向箭头1.png */,
+				01EE21F51BEA07C100460495 /* 指向箭头2.png */,
+				01EE21F61BEA07C100460495 /* 指向箭头3.png */,
+			);
+			name = "New Group";
+			sourceTree = "<group>";
+		};
+		01F1E5F21BF33AC500D13492 /* animotion */ = {
+			isa = PBXGroup;
+			children = (
+				01F1E5F61BF33B1800D13492 /* MoveActionView.h */,
+				01F1E5F71BF33B1800D13492 /* MoveActionView.m */,
+			);
+			name = animotion;
+			sourceTree = "<group>";
+		};
 		01FDF0561BD72C59000F7187 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
+				018056661BE706270051BFE7 /* SwitchView.h */,
+				018056671BE706270051BFE7 /* SwitchView.m */,
+				018776E91BD62C85009FF228 /* line.json */,
 				01FDF0571BD72CDC000F7187 /* SelectView.h */,
 				01FDF0581BD72CDC000F7187 /* SelectView.m */,
 				018055691BE05D720051BFE7 /* DropDownMenuView.h */,
 				0180556A1BE05D720051BFE7 /* DropDownMenuView.m */,
 				0180556D1BE1BB490051BFE7 /* PaintView.h */,
 				0180556E1BE1BB490051BFE7 /* PaintView.m */,
+				018056691BE750800051BFE7 /* DrawPaint.h */,
+				0180566A1BE750800051BFE7 /* DrawPaint.m */,
 			);
 			name = CustomView;
 			sourceTree = "<group>";
@@ -247,22 +317,8 @@
 		01FDF05A1BD76923000F7187 /* PathLine */ = {
 			isa = PBXGroup;
 			children = (
-				01FDF05B1BD76985000F7187 /* Model */,
 			);
 			name = PathLine;
-			sourceTree = "<group>";
-		};
-		01FDF05B1BD76985000F7187 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				01FDF05C1BD7699D000F7187 /* LineModel.h */,
-				01FDF05D1BD7699D000F7187 /* LineModel.m */,
-				01FDF05F1BD769D1000F7187 /* YFPoint.h */,
-				01FDF0601BD769D1000F7187 /* YFPoint.m */,
-				01FDF0621BD771D8000F7187 /* PreElement.h */,
-				01FDF0631BD771D8000F7187 /* PreElement.m */,
-			);
-			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -371,15 +427,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01F1E5F11BF31CB100D13492 /* View.xib in Resources */,
 				0194B8F81BD5DB75009F0351 /* direction3.png in Resources */,
 				0194B8F51BD5DB75009F0351 /* direction0.png in Resources */,
 				018776EA1BD62C85009FF228 /* line.json in Resources */,
 				0194B8F71BD5DB75009F0351 /* direction2.png in Resources */,
 				016990C11BBE7A5800F5DC69 /* LaunchScreen.storyboard in Resources */,
+				01EE21F71BEA07C100460495 /* 指向箭头0.png in Resources */,
 				0194B8F61BD5DB75009F0351 /* direction1.png in Resources */,
 				016990BE1BBE7A5800F5DC69 /* Assets.xcassets in Resources */,
+				01EE21F81BEA07C100460495 /* 指向箭头1.png in Resources */,
 				01ED91741BD0F2D400F96803 /* switch.png in Resources */,
 				016990BC1BBE7A5800F5DC69 /* Main.storyboard in Resources */,
+				01EE21FA1BEA07C100460495 /* 指向箭头3.png in Resources */,
+				01EE21F91BEA07C100460495 /* 指向箭头2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,19 +465,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01F1E5F81BF33B1800D13492 /* MoveActionView.m in Sources */,
 				01ED91771BD0F31C00F96803 /* RotionButton.m in Sources */,
+				01EE21FD1BEA081E00460495 /* YFPoint.m in Sources */,
 				016990B91BBE7A5800F5DC69 /* ViewController.m in Sources */,
-				018776E81BD62C1A009FF228 /* PathLine.m in Sources */,
 				01FDF0591BD72CDC000F7187 /* SelectView.m in Sources */,
+				01F1E5EC1BF31A5700D13492 /* StyleKitName.m in Sources */,
 				016990B61BBE7A5800F5DC69 /* AppDelegate.m in Sources */,
-				01FDF05E1BD7699D000F7187 /* LineModel.m in Sources */,
 				016990E61BBE7A8700F5DC69 /* DrawAnimotion.m in Sources */,
 				0125F00D1BCBA51D0007A432 /* Line.m in Sources */,
-				01FDF0641BD771D8000F7187 /* PreElement.m in Sources */,
+				01F1E5EF1BF31BE600D13492 /* DashView.m in Sources */,
+				01EE21F01BEA061400460495 /* PathLine.m in Sources */,
 				016990B31BBE7A5800F5DC69 /* main.m in Sources */,
 				0144F7371BCFA7FC00C6AAFF /* DrawProesss.m in Sources */,
+				01EE21F11BEA061400460495 /* PreElement.m in Sources */,
 				0194B8F01BD5D9B2009F0351 /* PathWay.m in Sources */,
-				01FDF0611BD769D1000F7187 /* YFPoint.m in Sources */,
+				01EE21EF1BEA061400460495 /* LineModel.m in Sources */,
+				0180566B1BE750800051BFE7 /* DrawPaint.m in Sources */,
+				018056681BE706270051BFE7 /* SwitchView.m in Sources */,
 				0180556B1BE05D720051BFE7 /* DropDownMenuView.m in Sources */,
 				01D598471BCDF5F80006D42E /* drawLine.m in Sources */,
 				01ED917A1BD48BEE00F96803 /* CustomPickView.m in Sources */,
